@@ -32,8 +32,16 @@ local Window = Rayfield:CreateWindow({
        GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
        Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
     }
- })
+Rayfield:Notify({
+   Title = "Notification Title",
+   Content = "Notification Content",
+   Duration = 6.5,
+   Image = 4483362458,
+})
 
 Rayfield:LoadConfiguration()
 
 local MainTab = Window:CreateTab("Tab Home", nil) -- Title, Image
+local Section = MainTab:CreateSection("Section Fonction de base")
+
+
