@@ -34,14 +34,15 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
-Rayfield:LoadConfiguration()
-
 local MainTab = Window:CreateTab("Tab Home", nil) -- Title, Image
 local Section = MainTab:CreateSection("Section Fonction de base")
 
 local Button = Tab:CreateButton({
-   Name = "Button Example1",
+   Name = "Button Niger",
    Callback = function()
    -- The function that takes place when the button is pressed
    end,
 })
+Button:Set("Button Niger")
+
+Rayfield:LoadConfiguration()
