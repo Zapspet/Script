@@ -39,17 +39,10 @@ Rayfield:LoadConfiguration()
 
 local MainTab = Window:CreateTab("Tab Home", nil) -- Title, Image
 local Section = MainTab:CreateSection("Section Fonction de base")
+
 local Button = Tab:CreateButton({
    Name = "Button Example1",
    Callback = function()
    -- The function that takes place when the button is pressed
    end,
-})
-
-local UserTab = Window:CreateTab("Tab Info User", 4483362458) -- Title, Image
-Rayfield:Notify({
-   Title = "Notification Title",
-   Content = "Notification Content",
-   Duration = 6.5,
-   Image = 4483362458,
 })
