@@ -1,7 +1,7 @@
 --[[
 
-	Rayfield Interface Suite
-	by Sirius
+	NiggaMan Interface Guide
+	by !Sam
 
 	shlex | Designing + Programming
 	iRay  | Programming
@@ -16,7 +16,7 @@ end
 local requestsDisabled = getgenv and getgenv().DISABLE_RAYFIELD_REQUESTS
 local InterfaceBuild = '3K3W'
 local Release = "Build 1.671"
-local RayfieldFolder = "Rayfield"
+local RayfieldFolder = "SuperNiggaMan"
 local ConfigurationFolder = RayfieldFolder.."/Configurations"
 local ConfigurationExtension = ".rfld"
 local settingsTable = {
@@ -176,9 +176,9 @@ local RayfieldLibrary = {
 	Flags = {},
 	Theme = {
 		Default = {
-			TextColor = Color3.fromRGB(240, 240, 240),
+			TextColor = Color3.fromRGB(175, 0, 220),
 
-			Background = Color3.fromRGB(25, 25, 25),
+			Background = Color3.fromRGB(41, 21, 21),
 			Topbar = Color3.fromRGB(34, 34, 34),
 			Shadow = Color3.fromRGB(20, 20, 20),
 
