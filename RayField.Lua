@@ -1,4 +1,4 @@
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/Zapspet/Script/refs/heads/main/Interface?token=GHSAT0AAAAAAC6IFOTHZ6NXLRVNOD3UQX36Z47F3WQ'))()
 
 local Window = Rayfield:CreateWindow({
    Name = "Rayfield Example Window",
@@ -37,12 +37,13 @@ local Window = Rayfield:CreateWindow({
 local MainTab = Window:CreateTab("Tab Home", nil) -- Title, Image
 local Section = MainTab:CreateSection("Section Fonction de base")
 
-local Button = Tab:CreateButton({
-   Name = "Button Niger",
+local Button = MainTab:CreateButton({
+   Name = "BTN Test UNC",
    Callback = function()
-   -- The function that takes place when the button is pressed
+
+
    end,
 })
-Button:Set("Button Niger")
+Button:Set("BTN Test UNC")
 
 Rayfield:LoadConfiguration()
