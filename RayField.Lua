@@ -35,3 +35,5 @@ local Window = Rayfield:CreateWindow({
  })
 
 Rayfield:LoadConfiguration()
+
+local Tab = Window:CreateTab("Tab Example", 4483362458) -- Title, Image
