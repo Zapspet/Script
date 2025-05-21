@@ -1,10 +1,10 @@
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/Zapspet/Script/refs/heads/main/Interface?token=GHSAT0AAAAAAC6IFOTHZ6NXLRVNOD3UQX36Z47F3WQ'))()
 
 local Window = Rayfield:CreateWindow({
-   Name = "Rayfield Example Window",
+   Name = "Script | By !Sam",
    Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
    LoadingTitle = "Rayfield Interface Suite",
-   LoadingSubtitle = "by Sirius",
+   LoadingSubtitle = "by !Sam",
    Theme = "Default", -- Check https://docs.sirius.menu/rayfield/configuration/themes
 
    DisableRayfieldPrompts = false,
@@ -13,7 +13,7 @@ local Window = Rayfield:CreateWindow({
    ConfigurationSaving = {
       Enabled = true,
       FolderName = nil, -- Create a custom folder for your hub/game
-      FileName = "Big Hub"
+      FileName = "Script Hub"
    },
 
    Discord = {
@@ -35,15 +35,5 @@ local Window = Rayfield:CreateWindow({
 })
 
 local MainTab = Window:CreateTab("Tab Home", nil) -- Title, Image
-local Section = MainTab:CreateSection("Section Fonction de base")
 
-local Button = MainTab:CreateButton({
-   Name = "BTN Test UNC",
-   Callback = function()
-
-
-   end,
-})
-Button:Set("BTN Test UNC")
-
-Rayfield:LoadConfiguration()
+local Main1Tab = Window:CreateTab("Tab Home", nil) -- Title, Image
