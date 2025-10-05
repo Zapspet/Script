@@ -1,0 +1,141 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+	Name = "Rayfield Example Window",
+	Icon = 0,
+	LoadingTitle = "Rayfield Interface Suite",
+	LoadingSubtitle = "by Sirius",
+	ShowText = "Rayfield",
+	Theme = "Default",
+	ToggleUIKeybind = "K",
+	DisableRayfieldPrompts = false,
+	DisableBuildWarnings = false,
+	ConfigurationSaving = {
+		Enabled = true,
+		FolderName = nil,
+		FileName = "Big Hub"
+	},
+	Discord = {
+		Enabled = false,
+		Invite = "noinvitelink",
+		RememberJoins = true
+	},
+	KeySystem = false,
+	KeySettings = {
+		Title = "Untitled",
+		Subtitle = "Key System",
+		Note = "No method of obtaining the key is provided",
+		FileName = "Key",
+		SaveKey = true,
+		GrabKeyFromSite = false,
+		Key = {"Hello"}
+	}
+})
+
+local EventTab = Window:CreateTab("Tab Example", 4483362458)
+
+-- Variables et boucle pour le Corn Maze
+local isCornMazeActive = false
+local cornMazeThread
+
+EventTab:CreateToggle({
+	Name = "Corn Maze Automation",
+	CurrentState = false,
+	Callback = function(state)
+		isCornMazeActive = state
+		if isCornMazeActive then
+			cornMazeThread = coroutine.wrap(function()
+				while isCornMazeActive do
+					local ReplicatedStorage = game:GetService("ReplicatedStorage")
+					local RemoteEvent = ReplicatedStorage:WaitForChild("Shared"):WaitForChild("Framework"):WaitForChild("Network"):WaitForChild("Remote"):WaitForChild("RemoteEvent")
+					
+					wait(5)
+					
+					local skipArgs = {"SkipMinigameCooldown", "Corn Maze"}
+					RemoteEvent:FireServer(unpack(skipArgs))
+					
+					wait(2)
+					
+					local startArgs = {"StartMinigame", "Corn Maze", "Insane"}
+					RemoteEvent:FireServer(unpack(startArgs))
+					
+					wait(2)
+					
+					local finishArgs = {"FinishMinigame"}
+					RemoteEvent:FireServer(unpack(finishArgs))
+				end
+			end)
+			cornMazeThread()
+		end
+	end,
+	Description = "Activates and deactivates the Corn Maze minigame automation script."
+})
+
+-- Variables et boucle pour l'Autumn Wheel
+local isAutumnWheelActive = false
+local autumnWheelThread
+
+EventTab:CreateToggle({
+	Name = "Autumn Wheel Automation",
+	CurrentState = false,
+	Callback = function(state)
+		isAutumnWheelActive = state
+		if isAutumnWheelActive then
+			autumnWheelThread = coroutine.wrap(function()
+				while isAutumnWheelActive do
+					local ReplicatedStorage = game:GetService("ReplicatedStorage")
+					local RemoteEvent = ReplicatedStorage:WaitForChild("Shared"):WaitForChild("Framework"):WaitForChild("Network"):WaitForChild("Remote"):WaitForChild("RemoteEvent")
+					local RemoteFunction = ReplicatedStorage:WaitForChild("Shared"):WaitForChild("Framework"):WaitForChild("Network"):WaitForChild("Remote"):WaitForChild("RemoteFunction")
+					
+					local spinArgs = {"AutumnWheelSpin"}
+					RemoteFunction:InvokeServer(unpack(spinArgs))
+					
+					wait(0.5)
+					
+					local claimArgs = {"ClaimAutumnWheelSpinQueue"}
+					RemoteEvent:FireServer(unpack(claimArgs))
+					
+					wait(0.5)
+				end
+			end)
+			autumnWheelThread()
+		end
+	end,
+	Description = "Spins the Autumn Wheel automatically."
+})
+
+-- Variables et boucle pour la téléportation et l'éclosion d'œuf
+local isEggHatchActive = false
+local eggHatchThread
+
+EventTab:CreateToggle({
+	Name = "Teleport & Hatch Candle Egg",
+	CurrentState = false,
+	Callback = function(state)
+		isEggHatchActive = state
+		if isEggHatchActive then
+			eggHatchThread = coroutine.wrap(function()
+				while isEggHatchActive do
+					local player = game:GetService("Players").LocalPlayer
+					local character = player.Character
+					
+					if character and character:FindFirstChild("HumanoidRootPart") then
+						-- Téléportation du joueur
+						character.HumanoidRootPart.CFrame = CFrame.new(106, 9, 239)
+					end
+					
+					-- Exécution de la fonction d'éclosion d'œuf avec 9 œufs
+					local ReplicatedStorage = game:GetService("ReplicatedStorage")
+					local RemoteEvent = ReplicatedStorage:WaitForChild("Shared"):WaitForChild("Framework"):WaitForChild("Network"):WaitForChild("Remote"):WaitForChild("RemoteEvent")
+					
+					local hatchArgs = {"HatchEgg", "Candle Egg", 9}
+					RemoteEvent:FireServer(unpack(hatchArgs))
+					
+					wait(1) -- Délai diminué à 1 seconde
+				end
+			end)
+			eggHatchThread()
+		end
+	end,
+	Description = "Teleports the player and automatically hatches a Candle Egg."
+})
